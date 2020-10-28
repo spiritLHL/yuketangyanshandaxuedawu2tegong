@@ -13,8 +13,8 @@ driver.find_element_by_xpath('/html/body/div[4]/div[2]/div[2]/div[3]/div/div[1]/
 time.sleep(20)
 driver.get("https://yanshan.yuketang.cn/pro/lms/845zVyirudC/4637424/studycontent")
 time.sleep(5)
-minid=7042901
-maxid=7042945
+minid=7042000
+maxid=7042999
 i = 0
 for c in range(maxid-minid+2):
     i +=1
