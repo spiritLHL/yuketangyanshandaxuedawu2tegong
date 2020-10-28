@@ -49,7 +49,11 @@ for a in urllists:
             '/html/body/div[4]/div[2]/div[2]/div[3]/div/div[2]/div/div/section[2]/div[1]/div/div/div/xt-wrap/xt-controls/xt-inner/xt-time/span[2]').text
         list_time = jieba.lcut(page_text)
         #print(list_time)
-        wait = int(list_time[-3]) * 60 + int(list_time[-1])  # 播放时长获取
+        full_time = int(list_time[-3]) * 60 + int(list_time[-1])
+        over_text = driver.find_element_by_xpath('/html/body/div[4]/div[2]/div[2]/div[3]/div/div[2]/div[1]/div/section[2]/div[1]/div/div/div/xt-wrap/xt-controls/xt-inner/xt-time/span[1]').text
+        over_time = jieba.lcut(over_text)
+        over = int(over_time[-3]) * 60 + int(over_time[-1])
+        wait = full_time - over  # 播放时长获取
         time.sleep(wait)
         t += 1
         print(f'已刷{t}个视频')
